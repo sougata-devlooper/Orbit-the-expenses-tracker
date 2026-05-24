@@ -6,6 +6,7 @@ from app.database.database import engine, Base
 from app.routes import auth, expenses, summary, insights
 from app.scheduler.jobs import start_scheduler
 from contextlib import asynccontextmanager
+from fastapi.staticfiles import StaticFiles
 
 # Create database tables automatically
 Base.metadata.create_all(bind=engine)
@@ -40,6 +41,7 @@ app.include_router(expenses.router)
 app.include_router(summary.router)
 app.include_router(insights.router)
 
+app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
 @app.get("/")
 def root():
     return {

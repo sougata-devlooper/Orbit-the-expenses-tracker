@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbit - Smart Expense Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <!-- Auth View -->
+    <main id="auth-view" class="view active">
+        <div class="glass-card auth-box">
+            <h1 class="logo">Orbit<span>.</span></h1>
+            <p class="subtitle">Take control of your finances</p>
+            
+            <div class="tabs">
+                <button class="tab active" onclick="switchAuth('login')">Login</button>
+                <button class="tab" onclick="switchAuth('register')">Register</button>
+            </div>
+
+            <form id="auth-form" onsubmit="handleAuth(event)">
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" id="email" required placeholder="you@example.com">
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="password" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn primary-btn" id="auth-btn">Login</button>
+            </form>
+            <p id="auth-error" class="error-msg"></p>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

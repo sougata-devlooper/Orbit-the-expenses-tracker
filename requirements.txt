@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+pydantic
+pydantic-settings
+passlib
+bcrypt
+python-jose
+apscheduler
+sendgrid
+python-multipart
+email-validator
+google-auth
+requests

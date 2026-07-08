@@ -1,4 +1,4 @@
-const API_URL = 'http://12orbit-the-expenses-tracker.onrender.com7.0.0.1:8000';
+const API_URL = 'http://127.0.0.1:8000';
 let currentAuthMode = 'login'; // 'login' or 'register'
 
 // Initialization

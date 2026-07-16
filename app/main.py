@@ -6,7 +6,6 @@ from app.database.database import engine, Base
 from app.routes import auth, expenses, summary, insights
 from app.scheduler.jobs import start_scheduler
 from contextlib import asynccontextmanager
-from fastapi.staticfiles import StaticFiles
 
 # Create database tables automatically
 Base.metadata.create_all(bind=engine)
@@ -18,6 +17,7 @@ async def lifespan(app: FastAPI):
     yield
     # Shutdown logic (if any)
 
+# pyrefly: ignore [missing-import]
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
@@ -41,10 +41,7 @@ app.include_router(expenses.router)
 app.include_router(summary.router)
 app.include_router(insights.router)
 
+from fastapi.staticfiles import StaticFiles
 app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
-@app.get("/")
-def root():
-    return {
-        "message": "Welcome to the Daily Expense Tracker API",
-        "docs": "Visit /docs for the interactive API documentation"
-    }
+
+
